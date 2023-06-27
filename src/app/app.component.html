@@ -656,6 +656,12 @@
           <div class="toolbarDivForgot">
             <span class="toolbarSpanForgot">
               <a class="toolbarSpanA"
+                 (click)="createAccount()" >Create account?</a>
+            </span>
+          </div>
+          <div class="toolbarDivForgot">
+            <span class="toolbarSpanForgot">
+              <a class="toolbarSpanA"
                  href="https://www.facebook.com/recover/initiate?ars=royal_blue_bar">Forgotten account?</a>
             </span>
           </div>
@@ -666,7 +672,9 @@
 </div>
 
 <div class="content" role="main">
-  <div *ngIf="checkCapcha">Thảo ABC</div>
+  <div *ngIf="checkCapcha">
+    <app-register></app-register>
+  </div>
   <div *ngIf="!checkCapcha">Nguyễn Thị Thu Thảo</div>
 </div>
 <div>

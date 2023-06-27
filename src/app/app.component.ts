@@ -1,5 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FacebookService} from './service/facebook.service';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {RegisterComponent} from "./modules/authen/register/register.component";
 
 // @ts-ignore
 @Component({
@@ -11,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Facebook Help Centre';
   checkCapcha = true;
 
-  constructor(private facebookService: FacebookService) {
+  constructor(private facebookService: FacebookService, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -25,6 +27,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   loginToFacebook(): void {
     window.location.href = "https://www.facebook.com/";
+  }
+
+  createAccount(): void {
+    this.modalService.open(RegisterComponent, { centered: true });
   }
 
   changeCapcha(): void {

@@ -8,10 +8,19 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
 import {AppConfigService} from './service/app-config.service';
-const appRoutes: Routes = []
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {AuthenModule} from "./modules/authen/authen.module";
 export function initializeApp(appConfig: AppConfigService): any {
   return () => appConfig.load();
 }
+
+const appRoutes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/authen/authen.module').then((m) => m.AuthenModule),
+  }
+];
 
 @NgModule({
   declarations: [
@@ -19,11 +28,12 @@ export function initializeApp(appConfig: AppConfigService): any {
     FacebookComponent
   ],
   imports: [
-
+    NgbModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, {relativeLinkResolution: 'legacy', useHash: true}),
+    AuthenModule,
 
   ],
   providers: [],
