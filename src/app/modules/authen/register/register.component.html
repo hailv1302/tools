@@ -1,35 +1,56 @@
-<form [formGroup]="userForm">
+<form [formGroup]="registerForm" novalidate (ngSubmit)="onSave()">
   <div class="modal-header">
-    <h4 class="modal-title">Đăng ký</h4>
-<!--    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
+    <h4 class="modal-title">Sign Up</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
     <div class="form-group mgb-10">
-      <input type="text" class="form-control" placeholder="Họ và tên" formControlName="userName">
+      <input type="text" class="form-control" placeholder="Username" id="userName" formControlName="userName"
+             [class.is-invalid]="userName.invalid && (userName.dirty || userName.touched)">
+      <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="invalid-feedback">
+        <div *ngIf="userName.errors?.['required']">
+          Username is required.
+        </div>
+      </div>
     </div>
     <div class="form-group mgb-10">
-      <input type="password" class="form-control" placeholder="Mật khẩu mới" formControlName="password">
+      <input type="tel" class="form-control" placeholder="Mobile number" formControlName="phone" required
+             [class.is-invalid]="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
+      <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="invalid-feedback">
+        <div *ngIf="mobileNumber.errors?.['required']">
+          Mobile number is required.
+        </div>
+      </div>
     </div>
     <div class="form-group mgb-10">
-      <input type="tel" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+      <input type="email" class="form-control" placeholder="Email" formControlName="email" required
+             [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+        <div *ngIf="email.errors?.['required']">
+          Email is required.
+        </div>
+      </div>
     </div>
     <div class="form-group mgb-10">
-      <input type="email" class="form-control" placeholder="Email" formControlName="email">
-    </div>
-    <div class="form-group mgb-10">
-      <input type="email" class="form-control" placeholder="Mail Công ty" formControlName="mailCompany">
+      <input type="email" class="form-control" placeholder="Mail Company" formControlName="mailCompany" required
+             [class.is-invalid]="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)">
+      <div *ngIf="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)" class="invalid-feedback">
+        <div *ngIf="mailCompany.errors?.['required']">
+          Mail Company is required.
+        </div>
+      </div>
     </div>
     <div class="mgb-10">
-      <label>Sinh nhật</label>
+      <label>Birthday</label>
       <div class="row">
-        <div class="col-4">
+        <div class="col-4" [class.invalid]="birthDayIsNotExist()">
           <select class="form-select" name="day" formControlName="dateSelect">
             <option [value]="day" *ngFor="let day of days">{{day}}</option>
           </select>
         </div>
         <div class="col-4">
           <select class="form-select" name="month" formControlName="monthSelect">
-            <option [value]="month" *ngFor="let month of months">Tháng {{month}}</option>
+            <option [value]="month.value" *ngFor="let month of months">{{month.title}}</option>
           </select>
         </div>
         <div class="col-4">
@@ -38,18 +59,22 @@
           </select>
         </div>
       </div>
+      <div *ngIf="birthDayIsNotExist()" class="text-danger">
+        Birthday invalid.
+      </div>
     </div>
     <div class="mgb-10">
-      <p class="text-desc">Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin liên hệ của bạn lên Facebook.
-        <a href="/help/637205020878504">Tìm hiểu thêm</a></p>
+      <p class="text-desc">People who use our service may have uploaded your contact information to Facebook.
+        <a href="/help/637205020878504">Learn more.</a></p>
     </div>
     <div>
-      <p class="text-desc">Bằng cách nhấp vào Đăng ký, bạn đồng ý với <a href="/legal/terms/update">Điều khoản</a>, <a
-        href="/about/privacy/update">Chính sách quyền riêng tư</a> và <a href="/policies/cookies/">Chính sách cookie</a>
-        của chúng tôi. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận bất kỳ lúc nào.</p>
+      <p class="text-desc">By clicking Sign Up, you agree to our <a href="/legal/terms/update">Terms</a>, <a
+        href="/about/privacy/update">Privacy Policy</a> and <a href="/policies/cookies/">Cookies policy.</a>
+        You may receive SMS notifications from us and can opt out at any time.</p>
     </div>
-  </div>
-  <div class="modal-footer">
-<!--    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Đóng</button>-->
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-submit">Sign Up</button>
+    </div>
   </div>
 </form>
