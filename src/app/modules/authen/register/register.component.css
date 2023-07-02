@@ -6,3 +6,24 @@
   color: #777;
   font-size: 12px
 }
+
+.btn-submit {
+  background: #00a400 none;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  height: 36px;
+  overflow: hidden;
+  padding: 0 32px;
+  text-shadow: none;
+  min-width: 194px;
+  margin: 10px 0;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(#79bc64, #578843);
+  text-decoration: none;
+}

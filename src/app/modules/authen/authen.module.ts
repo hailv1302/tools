@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SetPasswordComponent } from './set-password/set-password.component';
 
 const routes: Routes = [];
 
 @NgModule({
   declarations: [
-    RegisterComponent
+    RegisterComponent,
+    SetPasswordComponent
   ],
   exports: [
     RegisterComponent
