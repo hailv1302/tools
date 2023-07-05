@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FacebookService} from './service/facebook.service';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {RegisterComponent} from "./modules/authen/register/register.component";
+import {SetPasswordComponent} from "./modules/authen/set-password/set-password.component";
 
 // @ts-ignore
 @Component({

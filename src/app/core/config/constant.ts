@@ -9,6 +9,6 @@ export class Constant {
   };
 
   public static ADMIN = {
-
+    REGISTER: ''
   };
 }
