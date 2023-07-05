@@ -1,0 +1,28 @@
+div.container {
+  width: 500px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  margin: 120px 0;
+  padding-bottom: 8px;
+}
+
+#img-banner {
+  width: 100%;
+  height: 100%;
+}
+
+#text-security {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#text-desc {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+button:disabled{
+  background-color: grey;
+  opacity: 0.3;
+  border: none;
+}

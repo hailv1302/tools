@@ -4,13 +4,20 @@ import {RouterModule, Routes} from "@angular/router";
 import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SetPasswordComponent } from './set-password/set-password.component';
+import { ConfirmCaptchaComponent } from './confirm-captcha/confirm-captcha.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'captcha',
+    component: ConfirmCaptchaComponent
+  }
+];
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    SetPasswordComponent
+    SetPasswordComponent,
+    ConfirmCaptchaComponent
   ],
   exports: [
     RegisterComponent
