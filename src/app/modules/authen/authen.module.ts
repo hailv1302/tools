@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import { RegisterComponent } from './register/register.component';
+import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { SetPasswordComponent } from './set-password/set-password.component';
-import { ConfirmCaptchaComponent } from './confirm-captcha/confirm-captcha.component';
+import {SetPasswordComponent} from './set-password/set-password.component';
+import {ConfirmCaptchaComponent} from './confirm-captcha/confirm-captcha.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,8 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
   ]
 })
-export class AuthenModule { }
+export class AuthenModule {
+}
