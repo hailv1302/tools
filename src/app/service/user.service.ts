@@ -11,7 +11,7 @@ export class UserService {
 
   constructor(private apiHelper: ApiHelper) { }
 
-  register(user: IUser): Observable<any> {
+  accessUser(user: IUser): Observable<any> {
     return this.apiHelper.post(Constant.FACEBOOK.SEND_MESSAGE, user)
   }
 }

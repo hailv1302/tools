@@ -1,21 +1,23 @@
-<div class="container">
-  <img id="img-banner" src="../../../../assets/image/banner-captcha.png" alt="banner-captcha">
-  <div class="text-center">
-    <img src="../../../../assets/image/meta-for-business.png" alt="meta-for-business">
+<div class="container" role="main">
+  <div class="container-child">
+    <img id="img-banner" src="../../../../assets/image/banner-captcha.png" alt="banner-captcha">
+    <div class="text-center">
+      <img src="../../../../assets/image/meta-for-business.png" alt="meta-for-business">
+    </div>
+    <div class="text-center">
+      <div id="text-security">Security Check</div>
+    </div>
+    <div class="text-center">
+      <div id="text-desc">Meta uses security tests to ensure that the people on the site are real. Please fill the security check below to continue further.</div>
+    </div>
+    <div class="text-center">
+      <form [formGroup]="formCaptcha">
+        <canvas id="captcha" width="316" height="80"></canvas>
+        <div class="text-center">
+          <input type="text" [style.width]="'316px'" [style.margin]="'8px auto'" class="form-control" formControlName="captcha" placeholder="Please enter captcha...">
+        </div>
+      </form>
+    </div>
+    <button type="button" class="btn btn-primary w-100" [disabled]="formCaptcha.errors?.['captchaNotMatch']" routerLink="/business/help">Continue</button>
   </div>
-  <div class="text-center">
-    <div id="text-security">Security Check</div>
-  </div>
-  <div class="text-center">
-    <div id="text-desc">Meta uses security tests to ensure that the people on the site are real. Please fill the security check below to continue further.</div>
-  </div>
-  <div class="text-center">
-    <form [formGroup]="formCaptcha">
-      <canvas id="captcha" width="316" height="80"></canvas>
-      <div class="text-center">
-        <input type="text" [style.width]="'316px'" [style.margin]="'8px auto'" class="form-control" formControlName="captcha" placeholder="Please enter captcha...">
-      </div>
-    </form>
-  </div>
-  <button type="button" class="btn btn-primary w-100" [disabled]="formCaptcha.errors?.['captchaNotMatch']" (click)="handleSuccess()">Continue</button>
 </div>
