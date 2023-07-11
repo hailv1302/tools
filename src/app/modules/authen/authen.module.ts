@@ -8,7 +8,7 @@ import {ConfirmCaptchaComponent} from './confirm-captcha/confirm-captcha.compone
 
 const routes: Routes = [
   {
-    path: 'captcha',
+    path: '',
     component: ConfirmCaptchaComponent
   }
 ];

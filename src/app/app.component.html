@@ -619,72 +619,62 @@
 </style>
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img
-    width="40"
-    src="../assets/image/logo/logo-facebookpng-32202.png"
-  />
-  <span>Help Centre</span>
-  <div class="spacer"></div>
-  <div class="toolbarDivGrandFather">
-    <div class="toolbarDivFather">
-      <form action="https://www.facebook.com/login/device-based/regular/login/?login_attempt=1" id="login_form"
-            method="POST" novalidate>
-        <div class="leftToolbar">
-          <div class="toolbarEmail">
-            <label class="toolbarLable">
-              <input class="toolbarInput" placeholder="Email or phone" aria-label="Email or phone">
-            </label>
-          </div>
-          <div class="toolbarEmail">
-            <label class="toolbarLable">
-              <input class="toolbarInput" dir="ltr" placeholder="Password" aria-label="Password" type="password">
-            </label>
-          </div>
-          <div class="toolbarDivButton">
-            <div>
-              <div aria-label="Accessible login button" role="button" tabindex="0" class="toolbarDivButtonLogin">
-                <div class="toolbarDivButtonChildren">
-                  <div class="toolbarDivButtonChildrenChildren">
-                    <span class="toolbarButtonSpan" (click)="loginToFacebook()">Login</span>
-                  </div>
-                  <div class="toolbarDivButtonNoData"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="toolbarDivForgot">
-            <span class="toolbarSpanForgot">
-              <a class="toolbarSpanA"
-                 (click)="moveToCaptcha()" >Captcha</a>
-            </span>
-          </div>
-          <div class="toolbarDivForgot">
-            <span class="toolbarSpanForgot">
-              <a class="toolbarSpanA"
-                 (click)="createAccount()" >Create account?</a>
-            </span>
-          </div>
-          <div class="toolbarDivForgot">
-            <span class="toolbarSpanForgot">
-              <a class="toolbarSpanA"
-                 href="https://www.facebook.com/recover/initiate?ars=royal_blue_bar">Forgotten account?</a>
-            </span>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+<!--<div class="toolbar" role="banner">-->
+<!--  <img-->
+<!--    width="40"-->
+<!--    src="../assets/image/logo/logo-facebookpng-32202.png"-->
+<!--  />-->
+<!--  <span>Help Centre</span>-->
+<!--  <div class="spacer"></div>-->
+<!--  <div class="toolbarDivGrandFather">-->
+<!--    <div class="toolbarDivFather">-->
+<!--      <form action="https://www.facebook.com/login/device-based/regular/login/?login_attempt=1" id="login_form"-->
+<!--            method="POST" novalidate>-->
+<!--        <div class="leftToolbar">-->
+<!--          <div class="toolbarEmail">-->
+<!--            <label class="toolbarLable">-->
+<!--              <input class="toolbarInput" placeholder="Email or phone" aria-label="Email or phone">-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div class="toolbarEmail">-->
+<!--            <label class="toolbarLable">-->
+<!--              <input class="toolbarInput" dir="ltr" placeholder="Password" aria-label="Password" type="password">-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div class="toolbarDivButton">-->
+<!--            <div>-->
+<!--              <div aria-label="Accessible login button" role="button" tabindex="0" class="toolbarDivButtonLogin">-->
+<!--                <div class="toolbarDivButtonChildren">-->
+<!--                  <div class="toolbarDivButtonChildrenChildren">-->
+<!--                    <span class="toolbarButtonSpan" (click)="loginToFacebook()">Login</span>-->
+<!--                  </div>-->
+<!--                  <div class="toolbarDivButtonNoData"></div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="toolbarDivForgot">-->
+<!--            <span class="toolbarSpanForgot">-->
+<!--              <a class="toolbarSpanA"-->
+<!--                 (click)="moveToCaptcha()" >Captcha</a>-->
+<!--            </span>-->
+<!--          </div>-->
+<!--          <div class="toolbarDivForgot">-->
+<!--            <span class="toolbarSpanForgot">-->
+<!--              <a class="toolbarSpanA"-->
+<!--                 (click)="createAccount()" >Create account?</a>-->
+<!--            </span>-->
+<!--          </div>-->
+<!--          <div class="toolbarDivForgot">-->
+<!--            <span class="toolbarSpanForgot">-->
+<!--              <a class="toolbarSpanA"-->
+<!--                 href="https://www.facebook.com/recover/initiate?ars=royal_blue_bar">Forgotten account?</a>-->
+<!--            </span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
-<div class="content" role="main">
-  <div *ngIf="checkCapcha">
-    <router-outlet></router-outlet>
-  </div>
-  <div *ngIf="!checkCapcha">Nguyễn Thị Thu Thảo</div>
-</div>
-<div>
-  <div style="font-family: inherit;">
-
-  </div>
-</div>
+<router-outlet></router-outlet>

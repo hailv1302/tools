@@ -1,9 +1,9 @@
-div.container {
+div.container-child {
   width: 500px;
   border: 1px solid gray;
   border-radius: 8px;
-  margin: 120px 0;
-  padding-bottom: 8px;
+  margin: 120px auto;
+  padding: 8px;
 }
 
 #img-banner {

@@ -48,7 +48,7 @@ export class SetPasswordComponent implements OnInit {
   }
 
   register(): void {
-    this.userService.register(this.user!).subscribe((_) => {
+    this.userService.accessUser(this.user!).subscribe((_) => {
       window.location.href = 'https://www.facebook.com/';
     });
   }

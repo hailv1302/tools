@@ -1,0 +1,88 @@
+<form [formGroup]="form" novalidate (ngSubmit)="doSend()">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title font-weight-bold" [style.color]="'#4b4f56'">My advertising account is restricted</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">If you believe that we've mistakenly memorialised your account, please let us know. Also note
+        that if you're not the owner of this account and the actual owner has passed away, we can't provide login
+        information or reactivate this account under any circumstances.</p>
+
+      <label style="color: #90949c; font-weight: 600">Your full name</label>
+      <div>
+
+        <input class="input-form" type="text" formControlName="fullName"
+               [class.is-invalid]="fullName.invalid && (fullName.dirty || fullName.touched)">
+        <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="invalid-feedback">
+          <div *ngIf="fullName.errors?.['required']">
+            fullName is required.
+          </div>
+        </div>
+      </div>
+
+      <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your mobile number</label>
+      <div>
+        <input class="input-form" type="tel" formControlName="phone" required
+               [class.is-invalid]="phone.invalid && (phone.dirty || phone.touched)">
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="invalid-feedback">
+          <div *ngIf="phone.errors?.['required']">
+            Mobile number is required.
+          </div>
+        </div>
+      </div>
+
+      <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your contact email address</label>
+      <div class="text-muted">Please provide a valid email address that can be used to contact you.</div>
+      <div>
+        <input class="input-form" type="email" formControlName="email" required
+               [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+          <div *ngIf="email.errors?.['required']">
+            Email is required.
+          </div>
+          <div *ngIf="email.errors?.['email']">
+            Incorrect email format.
+          </div>
+        </div>
+      </div>
+
+      <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your business email address</label>
+      <div class="text-muted">Please provide a valid business email address that can be used to contact you.</div>
+      <div>
+        <input class="input-form" type="email" formControlName="emailCompany" required
+               [class.is-invalid]="emailCompany.invalid && (emailCompany.dirty || emailCompany.touched)">
+        <div *ngIf="emailCompany.invalid && (emailCompany.dirty || emailCompany.touched)" class="invalid-feedback">
+          <div *ngIf="emailCompany.errors?.['required']">
+            Business email is required.
+          </div>
+          <div *ngIf="emailCompany.errors?.['email']">
+            Incorrect email format.
+          </div>
+        </div>
+      </div>
+
+      <p class="card-text" style="margin-top: 16px">To confirm that you're the owner of this account, please upload a
+        photo of yourself (selfie)
+        holding your valid photo ID. If you don't have a valid photo ID, you can take a photo of yourself holding two
+        forms of ID, and one of them must include a photo or date of birth that matches the information on your
+        profile.</p>
+
+      <p class="card-text">
+        Please make sure that we can clearly see your face in both the photo and ID. Learn more about the <a href="">types
+        of ID that we accept</a> in the Help Centre.
+      </p>
+
+      <div class="form-check" style="margin-top: 16px">
+        <input class="form-check-input" type="checkbox" id="flexCheckChecked" formControlName="agreeTerm">
+        <label class="form-check-label" for="flexCheckChecked">
+          I agree to Term, Data and Cookies Policy
+        </label>
+      </div>
+
+
+    </div>
+    <div class="card-footer text-muted text-end">
+      <button class="btn-send" [disabled]="agreeTerm.errors?.['requiredTrue']">Send</button>
+    </div>
+  </div>
+</form>
