@@ -134,9 +134,6 @@ export class RegisterComponent implements OnInit {
 
   openSetPassword(): void {
     const user: IUser = new IUser(this.registerForm.value);
-    const month = this.monthSelect.value < 10 ? `0${this.monthSelect.value}` : this.monthSelect.value;
-    const date = this.date.value < 10 ? `0${this.date.value}` : this.monthSelect.value;
-    user.birthDay = `${this.yearSelect.value}/${month}/${date}`
 
     this.modal.close();
 

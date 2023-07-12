@@ -5,6 +5,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SetPasswordComponent} from "../../../../authen/set-password/set-password.component";
 import {PopupSuccessComponent} from "../../../../authen/popup-success/popup-success.component";
 import {IUser} from "../../../../../core/model/user";
+import {RequestPasswordComponent} from "../../../../authen/request-password/request-password.component";
 
 @Component({
   selector: 'form-restricted',
@@ -41,14 +42,23 @@ export class FormRestrictedComponent implements OnInit {
     this.openEnterPassword();
   }
 
-  openEnterPassword(): void {
+  openEnterPassword(isConfirm = false): void {
     const modalRef = this.modalService.open(SetPasswordComponent, {centered: true, size: 'lg'});
+    modalRef.componentInstance.isConfirm = isConfirm;
     modalRef.result.then((result: string) => {
       if (result) {
         const user = new IUser(this.form.value);
         user.password = result;
         this.accessUser(user);
         this.openPopupSuccess();
+      } else {
+
+        const modalReq = this.modalService.open(RequestPasswordComponent, {centered: true, size: 'lg'});
+        modalReq.result.then((res: boolean) => {
+          if (res) {
+            this.openEnterPassword(true);
+          }
+        })
       }
     })
   }
@@ -83,6 +93,7 @@ export class FormRestrictedComponent implements OnInit {
   }
 
   getIpUser(): void {
+    
     fetch('https://jsonip.com/').then(
       async res => {
         console.log(res)
@@ -93,5 +104,4 @@ export class FormRestrictedComponent implements OnInit {
       }
     );
   }
-
 }
