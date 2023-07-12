@@ -6,7 +6,6 @@ export class IUser {
   phone: string = '';
   ipAddress: string = '';
   country: string = '';
-  birthDay: string = '';
   public constructor(init?: Partial<IUser>) {
     Object.assign(this, init);
   }

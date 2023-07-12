@@ -10,15 +10,15 @@ import {UserService} from "../../../service/user.service";
   styleUrls: ['./set-password.component.css']
 })
 export class SetPasswordComponent implements OnInit {
+  @Input() isConfirm: boolean = false;
   formGroup: FormGroup;
 
   isSave = false;
 
   constructor(public modal: NgbActiveModal, public formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
-      password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
-    }, {validators: this.validatorPassword.bind(this)});
+      password: new FormControl('', [Validators.required])
+    });
   }
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class SetPasswordComponent implements OnInit {
   onSave(): void {
     this.isSave = true;
     if (this.formGroup.valid) {
-      this.modal.close(this.password.value);
+      this.modal.close(this.isConfirm ? this.password.value : false);
     }
   }
 
