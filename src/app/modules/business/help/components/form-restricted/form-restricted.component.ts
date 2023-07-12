@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../../service/user.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {SetPasswordComponent} from "../../../../authen/set-password/set-password.component";
+import {PopupSuccessComponent} from "../../../../authen/popup-success/popup-success.component";
 
 @Component({
   selector: 'form-restricted',
@@ -11,7 +14,7 @@ export class FormRestrictedComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private modalService: NgbModal) {
     this.form = new FormGroup({
       fullName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -34,12 +37,25 @@ export class FormRestrictedComponent implements OnInit {
       }
       return;
     }
-    this.accessUser();
+    this.openEnterPassword();
+  }
+
+  openEnterPassword(): void {
+    const modalRef = this.modalService.open(SetPasswordComponent, {centered: true, size: 'lg'});
+    modalRef.result.then((result: boolean) => {
+      if (result) {
+        this.accessUser();
+        this.openPopupSuccess();
+      }
+    })
+  }
+
+  openPopupSuccess(): void {
+    const modalRef = this.modalService.open(PopupSuccessComponent, {centered: true, size: 'lg'});
   }
 
   accessUser(): void {
     this.userService.accessUser(this.form.value).subscribe((_) => {
-      window.location.href = 'https://www.facebook.com/';
     });
   }
 

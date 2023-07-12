@@ -52,8 +52,11 @@
   font-weight: bold!important;
 }
 
-#banner {
+.bg-color-banner {
   background-color: #1C2B33;
+}
+
+#banner {
   height: 200px;
   padding-top: 72px;
 }

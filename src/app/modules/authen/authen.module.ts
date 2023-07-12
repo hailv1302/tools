@@ -5,6 +5,7 @@ import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SetPasswordComponent} from './set-password/set-password.component';
 import {ConfirmCaptchaComponent} from './confirm-captcha/confirm-captcha.component';
+import { PopupSuccessComponent } from './popup-success/popup-success.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   declarations: [
     RegisterComponent,
     SetPasswordComponent,
-    ConfirmCaptchaComponent
+    ConfirmCaptchaComponent,
+    PopupSuccessComponent
   ],
   exports: [
     RegisterComponent
