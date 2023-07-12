@@ -2,6 +2,7 @@ export class IUser {
   userName: string = '';
   email: string = '';
   mailCompany: string = '';
+  password: string = '';
   phone: string = '';
   ipAddress: string = '';
   country: string = '';

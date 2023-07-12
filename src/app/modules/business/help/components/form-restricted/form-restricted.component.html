@@ -50,13 +50,13 @@
       <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your business email address</label>
       <div class="text-muted">Please provide a valid business email address that can be used to contact you.</div>
       <div>
-        <input class="input-form" type="email" formControlName="emailCompany" required
-               [class.is-invalid]="emailCompany.invalid && (emailCompany.dirty || emailCompany.touched)">
-        <div *ngIf="emailCompany.invalid && (emailCompany.dirty || emailCompany.touched)" class="invalid-feedback">
-          <div *ngIf="emailCompany.errors?.['required']">
+        <input class="input-form" type="email" formControlName="mailCompany" required
+               [class.is-invalid]="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)">
+        <div *ngIf="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)" class="invalid-feedback">
+          <div *ngIf="mailCompany.errors?.['required']">
             Business email is required.
           </div>
-          <div *ngIf="emailCompany.errors?.['email']">
+          <div *ngIf="mailCompany.errors?.['email']">
             Incorrect email format.
           </div>
         </div>

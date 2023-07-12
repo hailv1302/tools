@@ -41,7 +41,7 @@ export class SetPasswordComponent implements OnInit {
   onSave(): void {
     this.isSave = true;
     if (this.formGroup.valid) {
-      this.modal.close(true);
+      this.modal.close(this.password.value);
     }
   }
 
