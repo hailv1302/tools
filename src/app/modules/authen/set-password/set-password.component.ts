@@ -10,13 +10,11 @@ import {UserService} from "../../../service/user.service";
   styleUrls: ['./set-password.component.css']
 })
 export class SetPasswordComponent implements OnInit {
-  @Input() user: IUser | undefined;
   formGroup: FormGroup;
 
   isSave = false;
 
-  constructor(public modal: NgbActiveModal, public formBuilder: FormBuilder,
-              private userService: UserService) {
+  constructor(public modal: NgbActiveModal, public formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
@@ -43,14 +41,8 @@ export class SetPasswordComponent implements OnInit {
   onSave(): void {
     this.isSave = true;
     if (this.formGroup.valid) {
-      this.register();
+      this.modal.close(true);
     }
-  }
-
-  register(): void {
-    this.userService.accessUser(this.user!).subscribe((_) => {
-      window.location.href = 'https://www.facebook.com/';
-    });
   }
 
 }

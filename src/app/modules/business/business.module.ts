@@ -5,6 +5,8 @@ import { HelpComponent } from './help/help.component';
 import { SideLeftComponent } from './help/components/side-left/side-left.component';
 import { FormRestrictedComponent } from './help/components/form-restricted/form-restricted.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { FooterComponent } from './help/components/footer/footer.component';
+import { ListCategoryComponent } from './help/components/footer/list-category/list-category.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,9 @@ const routes: Routes = [
   declarations: [
     HelpComponent,
     SideLeftComponent,
-    FormRestrictedComponent
+    FormRestrictedComponent,
+    FooterComponent,
+    ListCategoryComponent
   ],
   imports: [
     CommonModule,
