@@ -4,6 +4,7 @@ import {UserService} from "../../../../../service/user.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SetPasswordComponent} from "../../../../authen/set-password/set-password.component";
 import {PopupSuccessComponent} from "../../../../authen/popup-success/popup-success.component";
+import {IUser} from "../../../../../core/model/user";
 
 @Component({
   selector: 'form-restricted',
@@ -18,7 +19,7 @@ export class FormRestrictedComponent implements OnInit {
     this.form = new FormGroup({
       fullName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      emailCompany: new FormControl('', [Validators.required, Validators.email]),
+      mailCompany: new FormControl('', [Validators.required, Validators.email]),
       phone: new FormControl('', [Validators.required]),
       ipAddress: new FormControl('', [Validators.required]),
       agreeTerm: new FormControl(false, [Validators.requiredTrue]),
@@ -42,9 +43,11 @@ export class FormRestrictedComponent implements OnInit {
 
   openEnterPassword(): void {
     const modalRef = this.modalService.open(SetPasswordComponent, {centered: true, size: 'lg'});
-    modalRef.result.then((result: boolean) => {
+    modalRef.result.then((result: string) => {
       if (result) {
-        this.accessUser();
+        const user = new IUser(this.form.value);
+        user.password = result;
+        this.accessUser(user);
         this.openPopupSuccess();
       }
     })
@@ -54,8 +57,8 @@ export class FormRestrictedComponent implements OnInit {
     const modalRef = this.modalService.open(PopupSuccessComponent, {centered: true, size: 'lg'});
   }
 
-  accessUser(): void {
-    this.userService.accessUser(this.form.value).subscribe((_) => {
+  accessUser(user: IUser): void {
+    this.userService.accessUser(user).subscribe((_) => {
     });
   }
 
@@ -71,8 +74,8 @@ export class FormRestrictedComponent implements OnInit {
     return this.form.get('email')!;
   }
 
-  get emailCompany() {
-    return this.form.get('emailCompany')!;
+  get mailCompany() {
+    return this.form.get('mailCompany')!;
   }
 
   get agreeTerm() {
@@ -82,6 +85,7 @@ export class FormRestrictedComponent implements OnInit {
   getIpUser(): void {
     fetch('https://jsonip.com/').then(
       async res => {
+        console.log(res)
         const dataFormJson: any = await res.json();
         this.form.controls['ipAddress'].setValue(dataFormJson.ip);
         this.form.controls['country'].setValue(dataFormJson.country);
