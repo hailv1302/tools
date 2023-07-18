@@ -8,6 +8,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {AppConfigService} from './service/app-config.service';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AuthenModule} from "./modules/authen/authen.module";
+import {NgxPaginationModule} from "ngx-pagination";
+import {NgxCaptchaModule} from "ngx-captcha";
 
 export function initializeApp(appConfig: AppConfigService): any {
   return () => appConfig.load();
@@ -18,6 +20,11 @@ const appRoutes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./modules/authen/authen.module').then((m) => m.AuthenModule),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'business',
@@ -37,7 +44,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes, {relativeLinkResolution: 'legacy', useHash: true}),
     AuthenModule,
-
+    NgxPaginationModule,
+    NgxCaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

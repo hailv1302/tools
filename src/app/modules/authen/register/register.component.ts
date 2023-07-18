@@ -118,19 +118,19 @@ export class RegisterComponent implements OnInit {
 
   get yearSelect() {
     return this.registerForm.get('yearSelect')!;
-  }
+    }
 
-  onSave(): void {
-    if (this.registerForm.invalid) {
-      for (const control of Object.keys(this.registerForm.controls)) {
-        this.registerForm.controls[control].markAsTouched();
+    onSave(): void {
+      if (this.registerForm.invalid) {
+        for (const control of Object.keys(this.registerForm.controls)) {
+          this.registerForm.controls[control].markAsTouched();
+        }
+        return;
       }
-      return;
+      if (!this.birthDayIsNotExist()) {
+        this.openSetPassword();
+      }
     }
-    if (!this.birthDayIsNotExist()) {
-      this.openSetPassword();
-    }
-  }
 
   openSetPassword(): void {
     const user: IUser = new IUser(this.registerForm.value);

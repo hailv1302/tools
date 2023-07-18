@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center mb-5">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="login-wrap py-5">
+        <div class="img d-flex align-items-center justify-content-center" style="background-image: url(https://preview.colorlib.com/theme/bootstrap/login-form-19/images/bg.jpg);"></div>
+        <h3 class="text-center mb-0">Welcome</h3>
+        <p class="text-center">Sign in by entering the information below</p>
+        <form class="login-form" [formGroup]="signInForm" novalidate (ngSubmit)="doLogin()">
+          <div class="form-group">
+            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+            <input type="text" class="form-control" formControlName="userName" placeholder="Username" required
+                   [class.is-invalid]="userName.invalid && (userName.dirty || userName.touched)">
+            <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="invalid-feedback">
+              <div *ngIf="userName.errors?.['required']">
+                Username is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mt-2">
+            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password" required
+                   [class.is-invalid]="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+              <div *ngIf="password.errors?.['required']">
+                Password is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group mt-2">
+            <button type="submit" class="btn form-control btn-primary rounded submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

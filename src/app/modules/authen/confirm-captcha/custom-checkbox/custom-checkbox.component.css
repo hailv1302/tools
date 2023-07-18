@@ -1,0 +1,55 @@
+/* captcha-checkbox.component.css */
+.custom-checkbox {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #555;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.checkmark-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Checkbox Animation */
+@keyframes drawCheck {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark-icon path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawCheck 0.3s ease-in-out forwards;
+}
+
+.custom-checkbox input:checked ~ .checkmark .checkmark-icon {
+  animation: none;
+}

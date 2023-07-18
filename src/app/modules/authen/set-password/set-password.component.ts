@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbToast} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {IUser} from "../../../core/model/user";
-import {UserService} from "../../../service/user.service";
 
 @Component({
   selector: 'app-set-password',

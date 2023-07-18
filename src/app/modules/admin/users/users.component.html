@@ -1,0 +1,117 @@
+<nav class="navbar navbar-dark bg-primary">
+  <!-- Navbar content -->
+  <a class="navbar-brand mx-5" href="#">
+    Users
+  </a>
+  <a class="navbar-brand text-logout" (click)="logout()">
+    Logout
+  </a>
+</nav>
+
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center mb-5">
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchField.textSearch" (ngModelChange)="getUsers()">
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Number Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Email Company</th>
+        <th scope="col">Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of dataTable | paginate: { itemsPerPage: searchField.size, currentPage: searchField.page, totalItems: totalRecords }">
+        <th scope="row">{{row.userName}}</th>
+        <td>{{row.phone}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.mailCompany}}</td>
+        <td>{{row.country}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Le Hai</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Le Hai</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Le Hai</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Le Hai</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      <tr>
+        <th scope="row">Hoang Xuan Khanh</th>
+        <td>0123124123</td>
+        <td>acks@gmaoc.com</td>
+        <td>cola@gmaoc.com</td>
+        <td>VN</td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls *ngIf="dataTable.length > 0" (pageChange)="pageChanged($event)" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+  </div>
+</div>
