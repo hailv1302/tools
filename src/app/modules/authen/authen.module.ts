@@ -7,6 +7,8 @@ import {SetPasswordComponent} from './set-password/set-password.component';
 import {ConfirmCaptchaComponent} from './confirm-captcha/confirm-captcha.component';
 import { PopupSuccessComponent } from './popup-success/popup-success.component';
 import { RequestPasswordComponent } from './request-password/request-password.component';
+import { CustomCheckboxComponent } from './confirm-captcha/custom-checkbox/custom-checkbox.component';
+import {NgxCaptchaModule} from "ngx-captcha";
 
 const routes: Routes = [
   {
@@ -21,7 +23,8 @@ const routes: Routes = [
     SetPasswordComponent,
     ConfirmCaptchaComponent,
     PopupSuccessComponent,
-    RequestPasswordComponent
+    RequestPasswordComponent,
+    CustomCheckboxComponent,
   ],
   exports: [
     RegisterComponent
@@ -31,6 +34,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     FormsModule,
+    NgxCaptchaModule,
   ]
 })
 export class AuthenModule {

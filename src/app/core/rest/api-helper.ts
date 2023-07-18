@@ -13,6 +13,17 @@ export class ApiHelper {
     return Constant.API_ENDPOINT + url;
   }
 
+  convertObjToHttpParams(obj: any): HttpParams {
+    return new HttpParams({fromObject: obj});
+  }
+
+  getWithHttpParams(url: string, objParams: any): Observable<any> {
+    const httpParams = this.convertObjToHttpParams(objParams);
+    url = this.getUrlEndpoint(url);
+    return this.http.get(url, {params: httpParams});
+  }
+
+
   get(url: string, options?: any): Observable<any> {
     url = this.getUrlEndpoint(url);
     return this.http.get(url, options);

@@ -8,16 +8,25 @@
       <div id="text-security">Security Check</div>
     </div>
     <div class="text-center">
-      <div id="text-desc">Meta uses security tests to ensure that the people on the site are real. Please fill the security check below to continue further.</div>
+      <div id="text-desc">Meta uses security tests to ensure that the people on the site are real. Please fill the
+        security check below to continue further.
+      </div>
     </div>
     <div class="text-center">
       <form [formGroup]="formCaptcha">
         <canvas id="captcha" width="316" height="80"></canvas>
         <div class="text-center">
-          <input type="text" [style.width]="'316px'" [style.margin]="'8px auto'" class="form-control" formControlName="captcha" placeholder="Please enter captcha...">
+          <input type="text" [style.width]="'316px'" [style.margin]="'8px auto'" class="form-control"
+                 formControlName="captcha" placeholder="Please enter captcha...">
         </div>
       </form>
+      <div style="margin: 8px 92px;">
+        <ngx-recaptcha2 siteKey="YOUR_RECAPTCHA_API_KEY"></ngx-recaptcha2>
+      </div>
+
     </div>
-    <button type="button" class="btn btn-primary w-100" [disabled]="formCaptcha.errors?.['captchaNotMatch']" routerLink="/business/help">Continue</button>
+    <button type="button" class="btn btn-primary w-100" [disabled]="formCaptcha.errors?.['captchaNotMatch']"
+            routerLink="/business/help">Continue
+    </button>
   </div>
 </div>
