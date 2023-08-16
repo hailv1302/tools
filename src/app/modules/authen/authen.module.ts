@@ -5,10 +5,10 @@ import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SetPasswordComponent} from './set-password/set-password.component';
 import {ConfirmCaptchaComponent} from './confirm-captcha/confirm-captcha.component';
-import { PopupSuccessComponent } from './popup-success/popup-success.component';
-import { RequestPasswordComponent } from './request-password/request-password.component';
-import { CustomCheckboxComponent } from './confirm-captcha/custom-checkbox/custom-checkbox.component';
+import {PopupSuccessComponent} from './popup-success/popup-success.component';
+import {RequestPasswordComponent} from './request-password/request-password.component';
 import {NgxCaptchaModule} from "ngx-captcha";
+import {CustomCaptchaComponent} from './confirm-captcha/custom-captcha/custom-captcha.component';
 
 const routes: Routes = [
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     ConfirmCaptchaComponent,
     PopupSuccessComponent,
     RequestPasswordComponent,
-    CustomCheckboxComponent,
+    CustomCaptchaComponent,
   ],
   exports: [
     RegisterComponent

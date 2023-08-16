@@ -1,19 +1,19 @@
 <div class="bg-color-banner">
   <div class="container p-4 ">
-    <div class="row p-4">
-      <div class="col-3">
+    <div class="row p-4 d-none d-sm-flex">
+      <div class="col-sm-3">
         <app-list-category nameCate="Meta technologies" [listCate]="listMetaTechnologies"></app-list-category>
         <app-list-category nameCate="Tools" [listCate]="listTools"></app-list-category>
       </div>
-      <div class="col-3">
+      <div class="col-sm-3">
         <app-list-category nameCate="Goals" [listCate]="listGoals"></app-list-category>
         <app-list-category nameCate="Business Types" [listCate]="listBusinessTypes"></app-list-category>
       </div>
-      <div class="col-3">
+      <div class="col-sm-3">
         <app-list-category nameCate="Industries" [listCate]="listIndustries"></app-list-category>
         <app-list-category nameCate="Inspiration" [listCate]="listInspiration"></app-list-category>
       </div>
-      <div class="col-3">
+      <div class="col-sm-3">
         <app-list-category nameCate="Skills and training" [listCate]="listSkillsAndTraining"></app-list-category>
         <app-list-category nameCate="Guides and resources" [listCate]="listGuidesAndResources"></app-list-category>
         <app-list-category nameCate="Business Help Centre" [listCate]="listBusinessHelpCentre"></app-list-category>
@@ -21,7 +21,7 @@
     </div>
     <div class="bottom-footer">
       <div class="row content-bottom">
-        <div class="col-3 p-0">
+        <div class="col-12 col-sm-3 p-0">
           <div class="meta-name">© 2023 Meta</div>
           <div class="d-inline">
               <img class="ic-bottom" src="https://lookaside.fbsbx.com/elementpath/media/?media_id=799089314184025&version=1601676669" alt="fb">
@@ -30,11 +30,11 @@
               <img class="ic-bottom" src="https://lookaside.fbsbx.com/elementpath/media/?media_id=694902781449317&version=1605143722" alt="in">
           </div>
         </div>
-        <div class="col-9">
-          <div class="row wrap">
+        <div class="col-12 col-sm-9 language">
+          <div class="row">
             <div class="item-language col" [style.width]="'120px'" *ngFor="let name of listFooter">{{name}}</div>
           </div>
-          <div class="row wrap">
+          <div class="row">
             <div class="item-language col" [style.width]="'120px'" *ngFor="let name of listLanguage">{{name}}</div>
           </div>
         </div>

@@ -2,3 +2,7 @@
 .mgb-10 {
   margin-bottom: 10px;
 }
+
+.modal-xl .modal-lg {
+  max-width: 35%;
+}

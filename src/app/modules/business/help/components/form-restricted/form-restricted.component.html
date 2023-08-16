@@ -9,75 +9,78 @@
       </p>
       <p class="card-text">Report no: 292558237463098</p>
 
-      <label style="color: #90949c; font-weight: 600">Your full name</label>
-      <div>
-
-        <input class="input-form" type="text" formControlName="fullName"
-               [class.is-invalid]="fullName.invalid && (fullName.dirty || fullName.touched)">
-        <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="invalid-feedback">
-          <div *ngIf="fullName.errors?.['required']">
-            fullName is required.
+      <div class="col-12 col-lg-6">
+        <label style="color: #90949c; font-weight: 600">Your full name</label>
+        <div>
+          <input class="col-12" type="text" formControlName="fullName"
+                 [class.is-invalid]="fullName.invalid && (fullName.dirty || fullName.touched)">
+          <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="invalid-feedback">
+            <div *ngIf="fullName.errors?.['required']">
+              fullName is required.
+            </div>
           </div>
         </div>
       </div>
 
-      <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your mobile number</label>
-      <div>
-        <input class="input-form" type="tel" formControlName="phone" required
-               [class.is-invalid]="phone.invalid && (phone.dirty || phone.touched)">
-        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="invalid-feedback">
-          <div *ngIf="phone.errors?.['required']">
-            Mobile number is required.
+      <div class="col-12 col-lg-6">
+        <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your mobile number</label>
+        <div>
+          <input class="col-12" type="tel" formControlName="phone" required
+                 [class.is-invalid]="phone.invalid && (phone.dirty || phone.touched)">
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="invalid-feedback">
+            <div *ngIf="phone.errors?.['required']">
+              Mobile number is required.
+            </div>
           </div>
         </div>
       </div>
 
-      <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your contact email address</label>
-      <div class="text-muted">Please provide a valid email address that can be used to contact you.</div>
-      <div>
-        <input class="input-form" type="email" formControlName="email" required
-               [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
-          <div *ngIf="email.errors?.['required']">
-            Email is required.
-          </div>
-          <div *ngIf="email.errors?.['email']">
-            Incorrect email format.
-          </div>
-        </div>
-      </div>
-
-      <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your business email address</label>
-      <div class="text-muted">Please provide a valid business email address that can be used to contact you.</div>
-      <div>
-        <input class="input-form" type="email" formControlName="mailCompany" required
-               [class.is-invalid]="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)">
-        <div *ngIf="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)" class="invalid-feedback">
-          <div *ngIf="mailCompany.errors?.['required']">
-            Business email is required.
-          </div>
-          <div *ngIf="mailCompany.errors?.['email']">
-            Incorrect email format.
+      <div class="col-12 col-lg-6">
+        <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your contact email address</label>
+        <div class="text-muted">Please provide a valid email address that can be used to contact you.</div>
+        <div>
+          <input class="col-12" type="email" formControlName="email" required
+                 [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+            <div *ngIf="email.errors?.['required']">
+              Email is required.
+            </div>
+            <div *ngIf="email.errors?.['email']">
+              Incorrect email format.
+            </div>
           </div>
         </div>
       </div>
 
-      <p class="card-text" style="margin-top: 16px">To confirm that you're the owner of this account, please upload a
-        photo of yourself (selfie)
-        holding your valid photo ID. If you don't have a valid photo ID, you can take a photo of yourself holding two
-        forms of ID, and one of them must include a photo or date of birth that matches the information on your
-        profile.</p>
+      <div class="col-12 col-lg-6 p-1">
+        <label style="color: #90949c; font-weight: 600; margin-top: 16px">Your business email address</label>
+        <div class="text-muted">Please provide a valid business email address that can be used to contact you.</div>
+        <div>
+          <input class="col-12" type="email" formControlName="mailCompany" required
+                 [class.is-invalid]="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)">
+          <div *ngIf="mailCompany.invalid && (mailCompany.dirty || mailCompany.touched)" class="invalid-feedback">
+            <div *ngIf="mailCompany.errors?.['required']">
+              Business email is required.
+            </div>
+            <div *ngIf="mailCompany.errors?.['email']">
+              Incorrect email format.
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p class="card-text">
-        Please make sure that we can clearly see your face in both the photo and ID. Learn more about the <a href="">types
-        of ID that we accept</a> in the Help Centre.
-      </p>
+      <div class="col-12 col-lg-6">
+        <label style="color: #90949c; font-weight: 600; margin-top: 16px">Additional info</label>
+        <div>
+          <textarea class="col-12"></textarea>
+        </div>
 
-      <div class="form-check" style="margin-top: 16px">
-        <input class="form-check-input" type="checkbox" id="flexCheckChecked" formControlName="agreeTerm">
-        <label class="form-check-label" for="flexCheckChecked">
-          I agree to Term, Data and Cookies Policy
-        </label>
+        <div class="form-check" style="margin-top: 16px">
+          <input class="form-check-input" type="checkbox" id="flexCheckChecked" formControlName="agreeTerm">
+          <label class="form-check-label" for="flexCheckChecked">
+            I agree to Term, Data and Cookies Policy
+          </label>
+        </div>
       </div>
 
 

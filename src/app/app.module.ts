@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule, Routes} from "@angular/router";
 import {AppConfigService} from './service/app-config.service';
@@ -10,6 +10,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AuthenModule} from "./modules/authen/authen.module";
 import {NgxPaginationModule} from "ngx-pagination";
 import {NgxCaptchaModule} from "ngx-captcha";
+import {RequestInterceptor} from "./core/rest/request-interceptor";
 
 export function initializeApp(appConfig: AppConfigService): any {
   return () => appConfig.load();
@@ -47,7 +48,11 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     NgxCaptchaModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule {

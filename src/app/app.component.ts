@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Facebook Help Centre';
+  title = 'Meta Business Help Centre ';
   checkCapcha = true;
 
   constructor(private facebookService: FacebookService, private modalService: NgbModal, private router: Router) {

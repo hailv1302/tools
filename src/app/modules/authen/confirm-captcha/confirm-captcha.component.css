@@ -11,6 +11,9 @@ div.container-child {
   height: 100%;
 }
 
+#img-meta-business {
+}
+
 #text-security {
   font-size: 32px;
   font-weight: 600;
@@ -21,8 +24,26 @@ div.container-child {
   font-family: sans-serif;
 }
 
-button:disabled{
+button:disabled {
   background-color: grey;
   opacity: 0.3;
   border: none;
+}
+
+#captcha {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  height: 16vh; /* Đảm bảo chữa cả chiều cao của viewport */
+}
+
+
+@media screen and (max-width: 767px) {
+  div.container-child {
+    width: 100%;
+  }
+
+  #img-meta-business {
+    width: 90%;
+  }
 }

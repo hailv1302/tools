@@ -11,7 +11,7 @@ export class SetPasswordComponent implements OnInit {
   @Input() isConfirm: boolean = false;
   formGroup: FormGroup;
 
-  isSave = false;
+  countSave = 0;
 
   constructor(public modal: NgbActiveModal, public formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
@@ -26,20 +26,15 @@ export class SetPasswordComponent implements OnInit {
     return this.formGroup!.get('password')!;
   }
 
-  get confirmPassword() {
-    return this.formGroup!.get('confirmPassword')!;
-  }
-
-  validatorPassword(formGroup: FormGroup): any {
-    const {value: password} = formGroup.get('password')!;
-    const {value: confirmPassword} = formGroup.get('confirmPassword')!;
-    return password === confirmPassword ? null : {passwordNotMatch: true};
-  }
-
   onSave(): void {
-    this.isSave = true;
     if (this.formGroup.valid) {
-      this.modal.close(this.isConfirm ? this.password.value : false);
+      if (this.countSave > 0) {
+        this.modal.close(this.password.value);
+      } else {
+        this.countSave++;
+        this.password.setErrors({'wrongPassword': true});
+        this.password.setValue('')
+      }
     }
   }
 

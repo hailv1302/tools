@@ -15,8 +15,7 @@ export class HelpComponent implements OnInit {
   }
 
   openRegister(): void {
-    this.modal.open(RegisterComponent);
-
+    // this.modal.open(RegisterComponent);
   }
 
 }

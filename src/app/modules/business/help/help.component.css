@@ -48,8 +48,8 @@
 .bx-header > .tx {
   font-size: 14px;
   color: #344854;
-  font-family: 'Optimistic Text Viet Bold', Helvetica, Arial, sans-serif!important;
-  font-weight: bold!important;
+  font-family: 'Optimistic Text Viet Bold', Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
 }
 
 .bg-color-banner {
@@ -64,6 +64,18 @@
 .tx {
   font-size: 32px;
   color: white;
-  font-family: 'Optimistic Display Viet Medium', Helvetica, Arial, sans-serif!important;
-  font-weight: normal!important;
+  font-family: 'Optimistic Display Viet Medium', Helvetica, Arial, sans-serif !important;
+  font-weight: normal !important;
+}
+
+@media screen and (max-width: 767px) {
+  .tx {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 24px;
+  }
+
+  .bx-header {
+    margin-top: 0;
+  }
 }
